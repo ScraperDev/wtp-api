@@ -36,5 +36,9 @@ class Listing(Model):
     twai_confirmed = BooleanField(default=False)
     active = BooleanField(default=True)
 
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.owner = request.usera
+
     def __str__(self):
         return f"{self.created_date} listing for {self.volume} AF"
