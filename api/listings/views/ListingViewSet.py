@@ -1,8 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .serializers import ListingSerializer
-from .models.listing import Listing
+from listings.serializers import ListingSerializer
+from listings.models.listing import Listing
+from listings.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 class ListingViewSet(ModelViewSet):
@@ -12,5 +13,5 @@ class ListingViewSet(ModelViewSet):
     """
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, ]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
     
