@@ -4,7 +4,7 @@ from rest_framework.serializers import PrimaryKeyRelatedField
 from listings.models.listing_model import Listing
 
 class UserSerializer(serializers.ModelSerializer):
-    snippets = PrimaryKeyRelatedField(many=True, queryset=Listing.objects.all())
+    listings = PrimaryKeyRelatedField(many=True, queryset=Listing.objects.all())
 
     class Meta:
         model = User
