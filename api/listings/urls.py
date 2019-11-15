@@ -1,5 +1,6 @@
 from django.urls import path
 from listings.views.ListingViewSet import ListingViewSet
+from rest_framework.urlpatterns import format_suffix_patterns
 
 listing_list = ListingViewSet.as_view({
     'get': 'list',
