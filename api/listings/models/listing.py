@@ -23,7 +23,7 @@ class Listing(Model):
     """
     # Metadata
     created_date = DateTimeField(auto_now_add=True)
-    owner = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+    owner = ForeignKey('auth.User', related_name='listings', on_delete=CASCADE)
 
     # Fixed Data
     asking_price = IntegerField(editable=False)
