@@ -26,11 +26,11 @@ class Listing(Model):
     owner = ForeignKey('auth.User', related_name='listings', null=True, on_delete=CASCADE)
 
     # Fixed Data
-    asking_price = IntegerField(editable=False)
-    volume = IntegerField(editable=False)
-    water_type = CharField(max_length=50, editable=False)
-    partial_listing = BooleanField(default=False, editable=False)
-    minimum_increment = IntegerField(blank=True, null=True, editable=False)
+    asking_price = IntegerField()
+    volume = IntegerField()
+    water_type = CharField(max_length=50,)
+    partial_listing = BooleanField(default=False)
+    minimum_increment = IntegerField(blank=True, null=True)
 
     # Changing Data
     twai_confirmed = BooleanField(default=False)
@@ -42,4 +42,4 @@ class Listing(Model):
         obj.save()
 
     def __str__(self):
-        return f"{self.created_date} listing for {self.volume} AF"
+        return f"{self.volume} AF for ${self.asking_price}/AF"
