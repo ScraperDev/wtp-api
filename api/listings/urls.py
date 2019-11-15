@@ -9,8 +9,7 @@ listing_list = ListingViewSet.as_view({
 
 listing_detail = ListingViewSet.as_view({
     'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
+    'patch': 'set_inactive',
 })
 
 urlpatterns = format_suffix_patterns([
