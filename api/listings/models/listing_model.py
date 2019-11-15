@@ -23,7 +23,7 @@ class Listing(Model):
     """
     # Metadata
     created_date = DateTimeField(auto_now_add=True)
-    owner = ForeignKey('auth.User', related_name='listings', on_delete=CASCADE)
+    owner = ForeignKey('auth.User', related_name='listings', null=True, on_delete=CASCADE)
 
     # Fixed Data
     asking_price = IntegerField(editable=False)
@@ -38,7 +38,8 @@ class Listing(Model):
 
     def save_model(self, request, obj, form, change):
         if not change:
-            obj.owner = request.usera
+            obj.owner = request.user
+        obj.save()
 
     def __str__(self):
         return f"{self.created_date} listing for {self.volume} AF"
