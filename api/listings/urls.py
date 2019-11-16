@@ -9,10 +9,14 @@ listing_list = ListingViewSet.as_view({
 
 listing_detail = ListingViewSet.as_view({
     'get': 'retrieve',
-    'patch': 'set_inactive',
+})
+
+listing_deactivate = ListingViewSet.as_view({
+    'patch': 'set_inactive'
 })
 
 urlpatterns = format_suffix_patterns([
     path('listings/', listing_list, name='listing-list'),
     path('listings/<int:pk>/', listing_detail, name='listing-detail'),
+    path('listings/<int:pk>/deactivate/', listing_deactivate, )
 ])
