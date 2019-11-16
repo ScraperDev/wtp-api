@@ -18,5 +18,5 @@ listing_deactivate = ListingViewSet.as_view({
 urlpatterns = format_suffix_patterns([
     path('listings/', listing_list, name='listing-list'),
     path('listings/<int:pk>/', listing_detail, name='listing-detail'),
-    path('listings/<int:pk>/deactivate/', listing_deactivate, )
+    path('listings/<int:pk>/deactivate/', listing_deactivate, name='listing-deactivate'),
 ])
