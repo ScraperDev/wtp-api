@@ -2,6 +2,7 @@ from django.db.models import Model, IntegerField, BooleanField, CharField, DateT
 from django.utils import timezone
 from django.conf import settings
 
+
 class Listing(Model):
     """
     Broken into three field types:
@@ -15,7 +16,7 @@ class Listing(Model):
     - partial_listing
     - minimum_increment
     - water_type
-    
+
     ### Editable Data
     - twai_confirmed
     - active
@@ -23,7 +24,8 @@ class Listing(Model):
     """
     # Metadata
     created_date = DateTimeField(auto_now_add=True)
-    owner = ForeignKey('auth.User', related_name='listings', null=True, on_delete=CASCADE)
+    owner = ForeignKey('auth.User', related_name='listings',
+                       null=True, on_delete=CASCADE)
 
     # Fixed Data
     asking_price = IntegerField()
