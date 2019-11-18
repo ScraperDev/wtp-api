@@ -30,7 +30,7 @@ class Listing(Model):
     # Fixed Data
     asking_price = IntegerField()
     volume = IntegerField()
-    water_type = CharField(max_length=50,)
+    water_type = CharField(max_length=50)
     partial_listing = BooleanField(default=False)
     minimum_increment = IntegerField(blank=True, null=True)
 
