@@ -21,4 +21,4 @@ class Offer(Model):
         obj.save()
 
     def __str__(self):
-        return f"{self.owner.email}'s offer on {self.listing.volume} AF."
+        return f"{self.owner.username}'s offer on {self.listing.volume} AF."
