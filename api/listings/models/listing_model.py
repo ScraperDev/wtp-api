@@ -44,4 +44,4 @@ class Listing(Model):
         obj.save()
 
     def __str__(self):
-        return f"{self.pk} | {self.volume} AF for ${self.asking_price}/AF"
+        return f"{self.owner.username}'s listing for {self.volume} AF"
