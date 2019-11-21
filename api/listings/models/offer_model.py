@@ -10,7 +10,7 @@ class Offer(Model):
     - requested_volume: How much of the water the offerer wants, in Acre Feet
     """
     created_date = DateTimeField(auto_now_add=True)
-    offering_on = ForeignKey('listings.Listing', on_delete=CASCADE, related_name='offers')
+    listing = ForeignKey('listings.Listing', on_delete=CASCADE, related_name='offers')
     owner = ForeignKey('auth.User', related_name='offers', null=True, on_delete=CASCADE)
     offer_price = IntegerField()
     requested_volume = IntegerField()
@@ -19,3 +19,6 @@ class Offer(Model):
         if not change:
             obj.owner = request.user
         obj.save()
+
+    def __str__(self):
+        return f"{self.owner.email}'s offer on {self.listing.volume} AF."
